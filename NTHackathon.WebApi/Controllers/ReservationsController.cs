@@ -29,7 +29,7 @@ public class ReservationsController : ManagedControllerBase
 
     [HttpPost("", Name = "Create a new reservation")]
     [ProducesResponseType(typeof(ReservationDto), StatusCodes.Status201Created)]
-    public async Task<IActionResult> CreateAsync([FromBody] ReservationsControllerCreateDto data,
+    public async Task<IActionResult> CreateAsync([FromForm] ReservationsControllerCreateDto data,
         CancellationToken cancellationToken = default)
     {
         var command = new CreateReservationCommand()

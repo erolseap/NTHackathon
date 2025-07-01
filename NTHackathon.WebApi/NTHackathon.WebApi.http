@@ -4,3 +4,19 @@ GET {{NTHackathon.WebApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+POST http://localhost:5270/account/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "ali@gmail.com",
+  "password": "Asdf12!"
+}
+
+###
+
+GET http://localhost:5270/account/
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer CfDJ8PwOnGR6FtdFtDajQzwr1CnZDPIlImXjD7oH2hh_zNb2PpLOPTzcZ6x9YPZEq_6GRiOpGC0y4iZhvJ4GfS7o7UafHOfx-VMF_5y7QfJKMTmjXdLNx5D-DhCO7VLscFeAsdVExuSaAN57hLcOk9Pi2ILv6RuXyd92RK_7EdZCYmswF1QFm1q0loNhykHNV9adjHgpGuy8KYT1a7li1VnM1KDwx7r2GT-HEYJlX3zeNKl1LM7_92sxchCstcQ5x4F-A138nl24Td5DZM171hpE1X5U1bU25mQhNhoHjn9kfzwV0lk6LLPbz-f2oDugUzVTFnaT93IgxTXufTan1w2k6aBMpUceE9qxxgn2n8uxFgb0o_sl6XXDQggC25iR6w5iMhq1Kb9SRI7WcbBNbyLuOmsIEt7ijIYhJibMRQfW8mMQvQRdtRoduGzoDoqvVjK8nqQQVpMq0GC8ZBMr2fCXCoAHf6LJSkxc1vv0CrEigQyHCBXDwotZUEm0K0MYRJdXK5INufV_byWGBD_9WIH5wEjWVk-YhlqPMZAuc_80Ln9EWVOWC0jATA7PhfqH5Hf6YHZUhb1xytj8pFKsOv3BVolhVJqG0ZeLhmU3jBtgD7_Q-rhweMIdweHWkmXoOIos5aLInRYsswuTIKB0yagSxLAO1beu_WBpsBuDkoe34PoK_AVa4dH5fwPE-wWKhwwXdYfKmXkGvMYZjrFMvehEsrs4eZHxNkGeKbKzZvK4g4EF8rL6wuEXmUwUpl_QDC8vxw

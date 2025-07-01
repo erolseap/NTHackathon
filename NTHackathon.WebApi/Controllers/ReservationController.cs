@@ -34,7 +34,7 @@ public class ReservationController : EntityControllerBase<Reservation>
     [HttpPatch("", Name = "Update a specific reservation")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult PatchAsync(
-        [FromBody] ReservationControllerPatchDto data,
+        [FromForm] ReservationControllerPatchDto data,
         CancellationToken cancellationToken = default)
     {
         return Ok(_mapper.Map<ReservationDto>(Entity));

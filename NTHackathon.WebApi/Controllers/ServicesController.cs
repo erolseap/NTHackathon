@@ -20,7 +20,7 @@ public class ServicesController : ManagedControllerBase
     }
 
     [HttpGet("", Name = "List all services")]
-    [ProducesResponseType(typeof(IEnumerable<ReservationDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IEnumerable<ServiceDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAsync(CancellationToken cancellationToken = default)
     {
         return Ok(await _mediator.Send(new GetAllServicesQuery(), cancellationToken));
