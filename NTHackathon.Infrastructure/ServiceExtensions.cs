@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,10 +19,6 @@ public static class ServiceExtensions
             .UseNpgsql(configuration.GetConnectionString("default")!, builder => builder.MigrationsAssembly(Assembly.GetExecutingAssembly()))
             .UseSnakeCaseNamingConvention()
         );
-        
-        services.AddHttpClient();
-
-        services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped(typeof(IReadOnlyRepositoryAsync<>), typeof(ReadOnlyRepositoryAsync<>));
