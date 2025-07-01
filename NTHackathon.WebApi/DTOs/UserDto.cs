@@ -7,4 +7,5 @@ public class UserDto
     public string? Email { get; init; }
     public bool EmailConfirmed { get; init; }
     public bool TwoFactorEnabled { get; init; }
+    public bool IsAdmin { get; init; }
 }

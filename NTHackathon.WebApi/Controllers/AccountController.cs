@@ -33,6 +33,7 @@ public class AccountController : ManagedControllerBase
             Email = user.Email,
             EmailConfirmed = user.EmailConfirmed,
             TwoFactorEnabled = user.TwoFactorEnabled,
+            IsAdmin = await _userManager.IsInRoleAsync(user, "Admin")
         });
     }
     
