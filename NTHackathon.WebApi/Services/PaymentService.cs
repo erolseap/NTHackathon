@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using NTHackathon.Application.Repositories;
+using NTHackathon.Application.Specifications.Shared;
 using NTHackathon.Domain.DTOs;
 using NTHackathon.Domain.Entities;
+using NTHackathon.Domain.Enums;
 using NTHackathon.Domain.Repositories;
 using NTHackathon.Domain.Services;
 
@@ -34,21 +36,20 @@ public class PaymentService : IPaymentService
 
     public async Task<bool> CheckPaymentAsync(PaymentCheckDto dto)
     {
-        // var payment = await _repository.GetAsync(x => x.ConfirmToken == dto.Token && x.ReceptId == dto.ID && x.PaymentStatus == PaymentStatuses.Pending, include: x => x.Include(x => x.Order));
-        //
-        // if (payment is null)
-        //     throw new NotFoundException();
-        //
-        // if (dto.STATUS == PaymentStatuses.FullyPaid)
-        //     payment.Order.IsPaid = true;
-        //
-        // payment.PaymentStatus = dto.STATUS;
-        //
-        // _repository.Update(payment);
-        // await _repository.SaveChangesAsync();
-        //
-        // return dto.STATUS == PaymentStatuses.FullyPaid;
-        return true;
+        var reservation = await _reservationDtoRw.SingleOrDefaultAsync(new GetReservationByPaymentIdSpecification(dto.Id));
+        if (reservation == null)
+        {
+            return false;
+        }
+
+        if (dto.Status == PaymentStatus.FullyPaid || dto.Status == PaymentStatus.Declined)
+        {
+            reservation.IsPaid = true;
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
+        return false;
     }
 
     public async Task<PaymentResponseDto> CreateAsync(PaymentCreateDto dto)
@@ -87,7 +88,6 @@ public class PaymentService : IPaymentService
         var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{_paymentConfigurationDto.Username}:{_paymentConfigurationDto.Password}"));
         httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", credentials);
 
-
         var content = new StringContent(requestBody, Encoding.UTF8, "application/json");
         var response = await httpClient.PostAsync(_paymentConfigurationDto.BaseUrl, content);
 
@@ -97,22 +97,6 @@ public class PaymentService : IPaymentService
         var responseContent = await response.Content.ReadAsStringAsync();
 
         var result = JsonConvert.DeserializeObject<PaymentResponseDto>(responseContent) ?? new();
-
-        // Payment payment = new()
-        // {
-        //     Amount = dto.Amount,
-        //     Description = dto.Description,
-        //     OrderId = dto.OrderId,
-        //     ReceptId = result.Order.Id,
-        //     SecretId = result.Order.Secret,
-        //     PaymentStatus = PaymentStatuses.Pending,
-        //     ConfirmToken = confirmToken
-        // };
-        //
-        // await _repository.CreateAsync(payment);
-        // await _repository.SaveChangesAsync();
-
-        // result.Id = payment.Id;
 
         return result;
     }

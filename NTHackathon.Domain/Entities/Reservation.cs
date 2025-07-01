@@ -12,6 +12,8 @@ public class Reservation : BaseEntity
     public int RoomId { get; set; }
     public DateTime CheckInDate { get; set; }
     public DateTime CheckOutDate { get; set; }
+    public bool IsPaid { get; set; }
+    public int PaymentId { get; set; }
     
     /**
      * Relations
