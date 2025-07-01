@@ -16,9 +16,10 @@ public static class ServiceExtensions
     public static void ConfigureInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<AppDbContext>(opts => opts
-            .UseSqlServer(configuration.GetConnectionString("default")!, builder => builder.MigrationsAssembly(Assembly.GetExecutingAssembly()))
+            .UseNpgsql(configuration.GetConnectionString("default")!, builder => builder.MigrationsAssembly(Assembly.GetExecutingAssembly()))
+            .UseSnakeCaseNamingConvention()
         );
-        
+
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped(typeof(IReadOnlyRepositoryAsync<>), typeof(ReadOnlyRepositoryAsync<>));
         services.AddScoped(typeof(IWriteRepositoryAsync<>), typeof(WriteRepositoryAsync<>));
