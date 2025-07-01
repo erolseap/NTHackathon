@@ -1,0 +1,6 @@
+@NTHackathon.WebApi_HostAddress = http://localhost:5270
+
+GET {{NTHackathon.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
