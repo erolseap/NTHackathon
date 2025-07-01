@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using NTHackathon.Application.CQRS.Commands;
 using NTHackathon.Application.CQRS.Queries;
 using NTHackathon.Domain.DTOs;
-using NTHackathon.Infrastructure.İnterfaces;
+using NTHackathon.Infrastructure.Interfaces;
 using NTHackathon.WebApi.DTOs;
 
 namespace NTHackathon.WebApi.Controllers;

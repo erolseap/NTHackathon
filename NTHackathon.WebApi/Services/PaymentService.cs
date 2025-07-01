@@ -9,7 +9,7 @@ using NTHackathon.Domain.Entities;
 using NTHackathon.Domain.Repositories;
 using NTHackathon.Domain.Services;
 
-namespace NTHackathon.Infrastructure.Services;
+namespace NTHackathon.WebApi.Services;
 
 public class PaymentService : IPaymentService
 {

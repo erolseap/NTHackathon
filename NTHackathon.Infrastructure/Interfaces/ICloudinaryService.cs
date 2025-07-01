@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace NTHackathon.Infrastructure.İnterfaces;
+namespace NTHackathon.Infrastructure.Interfaces;
 
 public interface ICloudinaryService
 {

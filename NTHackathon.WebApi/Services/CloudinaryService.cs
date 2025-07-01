@@ -4,9 +4,9 @@ using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using NTHackathon.Domain.DTOs;
-using NTHackathon.Infrastructure.İnterfaces;
+using NTHackathon.Infrastructure.Interfaces;
 
-namespace NTHackathon.Infrastructure.Services;
+namespace NTHackathon.WebApi.Services;
 
 public class CloudinaryService : ICloudinaryService
 {
