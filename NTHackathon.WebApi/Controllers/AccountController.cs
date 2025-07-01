@@ -38,7 +38,7 @@ public class AccountController : ManagedControllerBase
     }
     
     [HttpPost("register-username",  Name = "Register a new account with username")]
-    [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create(AccountCreateDto data)
     {

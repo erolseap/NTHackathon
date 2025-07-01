@@ -30,6 +30,7 @@ public class AccountsController : ManagedControllerBase
             Email = user.Email,
             EmailConfirmed = user.EmailConfirmed,
             TwoFactorEnabled = user.TwoFactorEnabled,
+            IsAdmin = false
         }).ToListAsync();
         return Ok(users);
     }
