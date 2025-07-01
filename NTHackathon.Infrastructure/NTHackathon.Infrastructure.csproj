@@ -25,22 +25,4 @@
       <ProjectReference Include="..\NTHackathon.Domain\NTHackathon.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
-        <HintPath>..\..\..\..\Users\subxa\.dotnet\packs\Microsoft.AspNetCore.App.Ref\9.0.6\ref\net9.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
-      </Reference>
-      <Reference Include="Microsoft.AspNetCore.Http.Features">
-        <HintPath>..\..\..\..\Users\subxa\.dotnet\packs\Microsoft.AspNetCore.App.Ref\9.0.6\ref\net9.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
-      </Reference>
-      <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
-        <HintPath>..\..\..\..\Users\subxa\.dotnet\packs\Microsoft.AspNetCore.App.Ref\9.0.6\ref\net9.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
-      </Reference>
-      <Reference Include="Microsoft.AspNetCore.Mvc.Core">
-        <HintPath>..\..\..\..\Users\subxa\.dotnet\packs\Microsoft.AspNetCore.App.Ref\9.0.6\ref\net9.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
-      </Reference>
-      <Reference Include="Microsoft.Extensions.Http">
-        <HintPath>..\..\..\..\Users\subxa\.dotnet\packs\Microsoft.AspNetCore.App.Ref\9.0.6\ref\net9.0\Microsoft.Extensions.Http.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
 </Project>
