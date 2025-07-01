@@ -21,6 +21,23 @@ public class RoomsController : ManagedControllerBase
         _mapper = mapper;
     }
 
+
+
+
+    [HttpGet("by-customer/{customerId:int}")]
+    [ProducesResponseType(typeof(IEnumerable<RoomDto>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetRoomsByCustomerId(int customerId)
+    {
+        var rooms = await _mediator.Send(new FindRoomsByCustomerIdQuery(customerId));
+
+
+        return Ok(rooms);
+    }
+
+
+
+
+
     [HttpGet("", Name = "Get all rooms")]
     [ProducesResponseType(typeof(IEnumerable<RoomDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken = default)
