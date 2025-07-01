@@ -7,11 +7,3 @@ public class ReservationDto
     public CustomerDto? Customer { get; init; }
     public RoomDto? Room { get; init; }
 }
-
-public class RoomDto
-{
-}
-
-public class CustomerDto
-{
-}

@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace NTHackathon.WebApi.DTOs;
 
 public class ReservationControllerPatchDto

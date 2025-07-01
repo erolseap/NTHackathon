@@ -17,7 +17,7 @@ public class Reservation : BaseEntity
      * Relations
      */
 
-    public Customer? Customer { get; set; }
+    public IAppUser? Customer { get; set; }
     public Room? Room { get; set; }
     public ServiceEntity? Service { get; set; }
 }

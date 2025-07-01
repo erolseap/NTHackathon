@@ -14,10 +14,7 @@ public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
         builder.Property(r => r.CustomerId);
         builder.Property(r => r.RoomId);
 
-        builder.HasOne(p => p.Customer)
-            .WithMany(c => c.Reservations)
-            .HasForeignKey(r => r.CustomerId);
-        builder.HasOne(p => p.Room)
+        builder.HasOne(r => r.Room)
             .WithMany(r => r.Reservations)
             .HasForeignKey(r => r.RoomId)
             .OnDelete(DeleteBehavior.SetNull);
