@@ -1,10 +1,8 @@
 using System.Net;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using NTHackathon.Domain.DTOs;
-using NTHackathon.Infrastructure.Interfaces;
+using NTHackathon.WebApi.Interfaces;
 
 namespace NTHackathon.WebApi.Services;
 

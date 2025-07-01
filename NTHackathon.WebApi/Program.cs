@@ -5,7 +5,7 @@ using NTHackathon.Domain.Services;
 using NTHackathon.Infrastructure;
 using NTHackathon.Infrastructure.Data;
 using NTHackathon.Infrastructure.Entities;
-using NTHackathon.Infrastructure.Interfaces;
+using NTHackathon.WebApi.Interfaces;
 using NTHackathon.WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
