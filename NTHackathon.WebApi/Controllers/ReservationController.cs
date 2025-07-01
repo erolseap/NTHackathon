@@ -75,7 +75,7 @@ public class ReservationController : EntityControllerBase<Reservation>
         });
     }
     
-    [HttpPost("payment", Name = "Notification about paid url")]
+    [HttpGet("payment", Name = "Notification about paid url")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public async Task<IActionResult> CheckPaymentAsync(PaymentCheckDto dto)
