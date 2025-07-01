@@ -13,4 +13,6 @@ public class RoomsControllerCreateDto
     public decimal? PricePerNight { get; init; }
     [Required]
     public bool? IsReserved { get; init; }
+    [Required]
+    public IFormFile? Image { get; init; }
 }

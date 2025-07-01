@@ -16,5 +16,8 @@ public class RoomConfiguration : IEntityTypeConfiguration<Room>
             .IsRequired();
         builder.Property(r => r.IsReserved)
             .IsRequired();
+        builder.Property(r => r.ImageUrl)
+            .HasMaxLength(2049)
+            .HasDefaultValue("about:blank");
     }
 }

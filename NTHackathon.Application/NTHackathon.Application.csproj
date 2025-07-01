@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Profiles\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\NTHackathon.Domain\NTHackathon.Domain.csproj" />
     </ItemGroup>
 

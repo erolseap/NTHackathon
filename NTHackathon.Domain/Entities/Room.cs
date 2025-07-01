@@ -13,6 +13,7 @@ public class Room : BaseEntity
     public RoomType Type { get; set; }
     public decimal PricePerNight { get; set; }
     public bool IsReserved { get; set; }
+    public string ImageUrl { get; set; }
 
     /**
      * Relations

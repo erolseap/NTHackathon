@@ -40,7 +40,7 @@ public class ReservationsController : ManagedControllerBase
             CheckOutDate = data.CheckOutDate!.Value,
         };
         var id = await _mediator.Send(command, cancellationToken);
-        var reservation = _mediator.Send(new GetEntityByIdSpecification<Reservation>(id), cancellationToken);
+        var reservation = await _mediator.Send(new GetReservationByIdQuery(){ Id = id}, cancellationToken);
         return Created((Uri?)null, reservation);
     }
 }

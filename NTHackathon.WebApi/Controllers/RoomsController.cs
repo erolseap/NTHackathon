@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using NTHackathon.Application.CQRS.Commands;
 using NTHackathon.Application.CQRS.Queries;
 using NTHackathon.Domain.DTOs;
+using NTHackathon.Infrastructure.İnterfaces;
 using NTHackathon.WebApi.DTOs;
 
 namespace NTHackathon.WebApi.Controllers;
@@ -14,11 +15,13 @@ public class RoomsController : ManagedControllerBase
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly ICloudinaryService _cloudinaryService;
 
-    public RoomsController(IMediator mediator, IMapper mapper)
+    public RoomsController(IMediator mediator, IMapper mapper, ICloudinaryService cloudinaryService)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _cloudinaryService = cloudinaryService;
     }
 
     [HttpGet("", Name = "Get all rooms")]
@@ -30,17 +33,18 @@ public class RoomsController : ManagedControllerBase
 
     [HttpPost("", Name = "Create a new room")]
     [ProducesResponseType(typeof(RoomDto), StatusCodes.Status201Created)]
-    public async Task<IActionResult> CreateAsync([FromBody] RoomsControllerCreateDto data,
+    public async Task<IActionResult> CreateAsync([FromForm] RoomsControllerCreateDto data,
         CancellationToken cancellationToken = default)
     {
+        var imageUrl = await _cloudinaryService.FileCreateAsync(data.Image!);
         var id = await _mediator.Send(new CreateRoomCommand()
         {
             IsReserved = data.IsReserved!.Value,
             Number = data.Number!.Value,
             PricePerNight = data.PricePerNight!.Value,
-            Type = data.Type!.Value
+            Type = data.Type!.Value,
+            ImageUrl = imageUrl
         }, cancellationToken);
-
         var room = await _mediator.Send(new FindRoomByIdQuery() { Id = id }, cancellationToken);
         return Created((Uri?)null, room);
     }

@@ -2,13 +2,13 @@
 using NTHackathon.Domain.DTOs;
 using NTHackathon.Domain.Entities;
 
-namespace NTHackathon.Application.Profiles
+namespace NTHackathon.Application.Profiles;
+
+public class RoomProfile : Profile
 {
-    public class RoomProfile : Profile
+    public RoomProfile()
     {
-        public RoomProfile()
-        {
-            CreateMap<Room, RoomDto>();
-        }
+        CreateMap<Room, RoomDto>();
     }
 }
+

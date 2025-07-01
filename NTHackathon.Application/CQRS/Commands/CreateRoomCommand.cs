@@ -12,7 +12,7 @@ namespace NTHackathon.Application.CQRS.Commands
         public required RoomType Type { get; init; }
         public required decimal PricePerNight { get; init; }
         public required bool IsReserved { get; init; }
-
+        public required string ImageUrl { get; init; }
 
         class CreateRoomCommandHandler : IRequestHandler<CreateRoomCommand, int>
         {
@@ -31,6 +31,7 @@ namespace NTHackathon.Application.CQRS.Commands
                     Type = request.Type,
                     IsReserved = request.IsReserved,
                     PricePerNight = request.PricePerNight,
+                    ImageUrl = request.ImageUrl
                 };
 
                 await _repository.AddAsync(room, cancellationToken);
