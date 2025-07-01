@@ -22,7 +22,6 @@ public static class ServiceExtensions
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped(typeof(IReadOnlyRepositoryAsync<>), typeof(ReadOnlyRepositoryAsync<>));
         services.AddScoped(typeof(IWriteRepositoryAsync<>), typeof(WriteRepositoryAsync<>));
-        // services.AddScoped<IReadOnlyRepositoryAsync<Question>, ReadOnlyRepositoryAsync<Question>>();
     }
 
     public static void MigrateDatabase(this IServiceProvider serviceProvider)
