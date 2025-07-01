@@ -64,7 +64,7 @@ public class PaymentService : IPaymentService
             Protocol = _contextAccessor.HttpContext?.Request.Scheme
         };
 
-        var redirectUrl = "http://54.37.139.10:8080";
+        var redirectUrl = "http://localhost:5173/payment";
 
         string selectedCulture = "az";
 
